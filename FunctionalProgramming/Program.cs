@@ -5,21 +5,31 @@ namespace FunctionalProgramming
     internal class Program
     {
 
-        public static void checkEvenOdd(int num)
+        static void PrimeFactorization(int num)
         {
-            if (num % 2 == 0)
+            Console.Write("Prime factors of a given num are ");
+            while (num % 2 == 0)
             {
-                Console.WriteLine("Given num is even");
+                Console.Write(2 + " ");
+                num /= 2;
             }
-            else
-                Console.WriteLine("Given num is odd");
+            for (int i = 3; i <= Math.Sqrt(num); i++)
+            {
+                while (num % i == 0)
+                {
+                    Console.Write(i + " ");
+                    num /= i;
+                }
+            }
+            if (num > 2)
+                Console.Write(num);
         }
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Functional Programming");
-            Console.WriteLine("Enter a num ");
+            Console.WriteLine("enter the value of n");
             int num = Convert.ToInt32(Console.ReadLine());
-            checkEvenOdd(num);
+            PrimeFactorization(num);
         }
     }
 }
